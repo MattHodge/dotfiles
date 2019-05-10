@@ -1,0 +1,35 @@
+[user]
+	name = Matthew Hodgkins
+	email = matthodge@gmail.com
+[alias]
+    fu = fetch upstream
+    ru = rebase upstream/master
+    co = checkout
+    cl = clone
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    rau = remote add upstream
+    pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+    # for bitbucket/stash remotes
+    spr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+    # deletes local and remote branch
+    nuke = !sh -c 'git branch -D $1 && git push origin :$1' -
+    # get branch name
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    # push branch to remote
+    pb = !git push -u origin $(git branch-name)
+    # remove remote branch
+    up = "!git push origin :$(git branch-name)"
+    fuckit = !sh -c 'git fetch upstream && git checkout master && git reset --hard upstream/master && git push origin master --force' -
+    # sync branch
+    sb = !sh -c 'git fetch upstream && git pull upstream master'
+    af = !sh -c 'git add . && git commit --amend --no-edit && git push --force'
+[color]
+	ui = auto
+[core]
+    editor = vim
+[credential]
+	helper = osxkeychain
