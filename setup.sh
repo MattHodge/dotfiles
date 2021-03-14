@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a arr=(".alacritty.yml" ".gitconfig" ".gitignore_global" ".tmux.conf")
+declare -a arr=(".alacritty.yml" ".gitconfig" ".gitignore_global" ".tmux.conf" ".bash_profile" ".bashrc")
 
 pushd ~
 for i in "${arr[@]}"
