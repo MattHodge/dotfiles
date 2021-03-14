@@ -184,8 +184,8 @@ key_bindings:
 
   # shortcuts for tmux. the leader key is control-b (0x02)
   - { key: T,        mods: Command,       chars: "\x02c"                 }  # new tab
-  - { key: RBracket, mods: Command,       chars: "\x02n"                 }  # select next tab
-  - { key: LBracket, mods: Command,       chars: "\x02p"                 }  # select previous tab
+  - { key: Right,    mods: Command|Shift,       chars: "\x02n"                 }  # select next tab
+  - { key: Left,     mods: Command|Shift,       chars: "\x02p"                 }  # select previous tab
   - { Key: D,        mods: Command,       chars: "\x02%"                 }  # split vertically
   - { Key: D,        mods: Command|Shift, chars: "\x02\""                }  # split horizontally
   - { key: Up,       mods: Command,       chars: "\x02;"                 }  # select last (previously used) pane
